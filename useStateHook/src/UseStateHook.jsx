@@ -2,7 +2,8 @@ import {useState} from 'react';
 
 let UseStateHook=()=>
 {
-    const [getEmoji,setEmoji]=useState("");
+    const [Emoji,setEmoji]=useState("⚛️");
+    const [count,setCount]=useState(0);
       function randomEmojiAssigner()
       {
           let emoji_arr=["😀","😆","😂","😊","😲","😞","🥳","🤬","👽","💀","🤡"];
@@ -10,16 +11,18 @@ let UseStateHook=()=>
         //   console.log(index);
            console.log(emoji_arr[index]);
            setEmoji(emoji_arr[index]);
+           setCount(count+1);
       }
 
       return(
         <>
         <button onClick={randomEmojiAssigner}>
-            Click to generate random emoji
+            click to generate random emoji
         </button >
 
-
-        <h3>Your emoji {getEmoji} </h3>
+            
+        <p>Emoji : {Emoji} </p>
+        <p>Count: {count}</p>
         </>
       )
 
