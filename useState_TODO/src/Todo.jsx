@@ -2,12 +2,22 @@ import { useState } from "react";
 import { v4 as uniqueId } from 'uuid';
 function Todo()
 { 
+    const [Emoji,setEmoji]=useState("⚛️");
     const[taskName,setTaskName]=useState("");
     const[taskList,setTaskList]=useState([]);
     const[isediting,enableEditing]=useState(null);
     const[newtaskName,setNewTaskName]=useState("");
 
-
+ 
+    setTimeout(()=>
+     {
+        let emoji_arr=["😀","😆","😂","😊","😲","😞","🥳","😶‍🌫️","🤑","🙃","🏃‍♂️","👩‍🚀"];
+         let index=Math.floor(Math.random()*emoji_arr.length);
+      //   console.log(index);
+        
+         setEmoji(emoji_arr[index]);
+      
+    } ,1500);
     //Adding the Task to list
     function addTask(taskTitle)
     {
@@ -76,7 +86,7 @@ function Todo()
     }
     return (
              <>
-             <h3>GIT ToDo App</h3>
+             <h2>ToDo App{Emoji}</h2>
              <input placeholder="Enter the task name" value={taskName} onChange={(event)=>{setTaskName(event.target.value)}}></input><button onClick={()=>{addTask(taskName)}}>➕</button>
              <ul>
                 {  
